@@ -1,0 +1,28 @@
+{% extends 'layout.html'%}
+<!-- sin el block contens solo se ejecuta layou-->
+<!-- lo que esta en el block content se pasa a layout para que se ejecute-->
+{% block titulo %}Select Ingredientes{% endblock %}
+{% block content %}
+    <h1>Select Ingredientes para Receta</h1>
+    <form action="" method="post">
+        <table>
+            <tr style="vertical-align:top"><td>
+        <input type="hidden" name="recetaid" value="{{recetaid}}">
+        {% for i in records %} <!--el llave% es para las funciones de python -->
+        <input type="checkbox" name="sellist" value="{{i['ID']}}">&nbsp;{{ i['name'] }}
+            
+        
+            {% if loop.index % 60 == 0%}
+                </td><td>
+            {% else %}
+                </br>
+            {% endif %}
+
+        {% endfor %}
+            </td></tr>
+        </table>
+        <hr />
+        <input type="submit" value="Enviar" title="Emviar el formulario" class="btn btn-primary" />
+    </form>
+{% endblock %}
+

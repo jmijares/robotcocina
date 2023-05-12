@@ -1,0 +1,14 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+    <h1>Incluir Ingrediente</h1>
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="Nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" placeholder="nombre" value="" required class="form-control" />
+        </div>
+        <hr />
+        <input type="submit" value="Enviar" title="Emviar el formulario" class="btn btn-primary" />
+    </form>      
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'layout.html'%}
+<!-- sin el block contens solo se ejecuta layou-->
+<!-- lo que esta en el block content se pasa a layout para que se ejecute-->
+
+{% block content %}
+<h1>Datos del producto {{datos[3]}}</h1>
+
+<table>
+    <tr>
+        <td>
+            <img src="http://presario.jmijares.ml:4081/images/{{datos[2]}}.jpg", width="250">
+        </td>
+        <td>
+            <ul class=""breadcrumb">
+                <li class="active">id:&nbsp;<b>{{datos[0]}}</b></li>
+                <li class="active">Clase:&nbsp;<b>{{datos[1]}}</b></li>
+                <li class="active">Barcode:&nbsp;<b>{{datos[2]}}</b></li>
+                <li class="active">Descripcion:&nbsp;<b>{{datos[3]}}</b></li>
+                <li class="active">Presentacion:&nbsp;<b>{{datos[4]}}</b></li>
+                <li class="active">Peso/Vol:&nbsp;<b>{{datos[5]}}</b></li>
+                <li class="active">Unid de medida:&nbsp;<b>{{datos[6]}}</b></li>
+                <li class="active">Entradas:&nbsp;<b>{{entradas}}</b></li>
+                <li class="active">Salidas:&nbsp;<b>{{salidas}}</b></li>
+                <li class="active">Ult Costo en Bsd:&nbsp;<b>{{ultcosto}}</b></li>
+                <li class="active">Ult Costo en US$:&nbsp;<b>{{ultcostodolar}}</b></li>
+                <li class="active">Ult Proveedor:&nbsp;<b>{{datos[11]}}</b></li>
+                <li class="active">Fecha ult compra:&nbsp;<b>{{datos[12]}}</b></li>
+                <li class="active">Pto Pedido:&nbsp;<b>{{ptopedido}}</b></li>
+                <li class="active">Iva 1:&nbsp;<b>{{iva1}}%</b></li>
+                <li class="active">Iva 2:&nbsp;<b>{{iva2}}%</b></li>
+                <li class="active">Existencia:&nbsp;<b>{{existencia}}</b></li>
+            </ul>
+        </td>
+    </tr>
+ </table>   
+    
+    
+    
+{% endblock %}
+        

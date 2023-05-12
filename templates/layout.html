@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block titulo %} {% endblock%}</title>
+        <!-- implmentar bootstrap dentro del layout los css estan en static folder-->
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}"/>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light bg-light " >
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="nav nav-tabs"> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Recetas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{url_for('listarrecetas')}}">Listar todas las recetas</a>
+                              <div class="dropdown-divider"></div>            
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Sopas')}}">Sopas</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Aves')}}">Recetas con carne de aves</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Carne')}}">Recetas con carne de res</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Cerdo')}}">Recetas con carne de cerdo</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Pescado')}}">Recetas con carne de pescado</a>
+
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Mariscos')}}">Recetas con mariscos</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Arroz')}}">Recetas con arroz</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Pasta')}}">Recetas con pasta</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Huevos')}}">Recetas con huevos</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Ensalada')}}">Ensaladas</a>
+
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Entremes')}}">Entremeses</a>
+                                <a class="dropdown-item" href="{{url_for('listarclasereceta',label='Postre')}}">Postres</a>
+                               
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Ingredientes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{url_for('listaringredientes')}}">Listar todos los Ingredientes</a>
+                                <div class="dropdown-divider"></div>            
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Aceites')}}">Aceites</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Azucares')}}">Azucares</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Carnes')}}">Carnes, aves y pescados</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Cereales')}}">Cereales</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Condimentos')}}">Condimentos en polvo</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Embutidos')}}">Embutidos</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Enlatados')}}">Enlatados/Embasados</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Frutas')}}">Frutas</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Gransos')}}">Granos</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Harinas')}}">Harinas</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Herramientas')}}">Herramientas</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Huevos')}}">Huevos</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Lacteos')}}">Lacteos</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Panes')}}">Panes</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Pasta')}}">Pasta</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Refrescos')}}">Refrescos embotellados</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Verduras')}}">Verduras</a>
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Salsas')}}">Salsas</a> 
+                                <a class="dropdown-item" href="{{url_for('listarclase',label='Vinos')}}">Vinos</a> 
+                            </div>
+                        </li> 
+                        {% if ip  in ['10.0.2.150', '10.0.2.151', '10.0.2.181', '127.0.0.1', '172.17.0.1'] %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Administración
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{url_for('home')}}">Home</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{url_for('editarrecetas')}}">Editar Recetas</a>
+                                <a class="dropdown-item" href="{{url_for('incluirreceta')}}">Incluir Recetas</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{url_for('editaringredientes')}}">Editar Ingredientes</a>
+                                <a class="dropdown-item" href="{{url_for('incluiringrediente')}}">Incluir Ingrediente</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{url_for('backup')}}">Backup to SQL Data Base local <spam style="color:red">(long process wait..)</spam></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{url_for('huerfan')}}">Recetas sin Ingredientes</a>
+
+                            </div>  
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </nav>
+            <div class="container">
+            <!-- contenido -->
+            {% block content %} {% endblock %} <!-- le dices al framerok que vas a crear un bloque dinamico de codio llamado content-->
+            <!-- /contenido -->
+            </div>
+        </div>
+        <script src="{{ url_for('static',filename='js/jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>    
+    </body>
+</html>
