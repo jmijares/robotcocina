@@ -21,11 +21,11 @@ import os
 
 app =  Flask(__name__)
 
-DataBase = Neo4jDrivers("bolt://localhost:7687", "neo4j", "Lupapaul5409")
+DataBase = Neo4jDrivers("bolt://localhost:7687", "neo4j", "your password")
 
 app.config['MYSQL_HOST']='presario.jmijares.ml'
 app.config['MYSQL_USER']='rootroot'
-app.config['MYSQL_PASSWORD']='Lupapaul5409'
+app.config['MYSQL_PASSWORD']='You sql password'
 app.config['MYSQL_DB']='inventario'
 
 mysql = MySQL(app) 
