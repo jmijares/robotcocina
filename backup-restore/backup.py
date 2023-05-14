@@ -3,12 +3,12 @@ from Neo4jDriversSP import Neo4jDrivers
 
 import mysql.connector
 
-DataBase = Neo4jDrivers("bolt://jmijares.ml:7687", "neo4j", "Lupapaul5409")
+DataBase = Neo4jDrivers("bolt://jmijares.ml:7687", "neo4j", "yout password")
 
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="Lupapaul5409",
+  password="your mysql password",
   database="robotcocina"
 )
 
